@@ -3,17 +3,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <title>My classroom</title>
 <meta name="description" content="Bé nghe và chạm đúng đồ vật trong lớp học.">
-<link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3330/3330381.png">
-<link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3330/3330381.png">
+<link rel="icon" type="image/png" href="preview.png">
+<link rel="apple-touch-icon" href="preview.png">
 <meta name="theme-color" content="#ffe9bf">
 <meta property="og:type" content="website">
 <meta property="og:title" content="My classroom">
 <meta property="og:description" content="Bé nghe và chạm đúng đồ vật trong lớp học.">
-<meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/3330/3330381.png">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://lamchiphuong.github.io/roomgame/preview.png">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="My classroom">
 <meta name="twitter:description" content="Bé nghe và chạm đúng đồ vật trong lớp học.">
-<meta name="twitter:image" content="https://cdn-icons-png.flaticon.com/512/3330/3330381.png">
+<meta name="twitter:image" content="https://lamchiphuong.github.io/roomgame/preview.png">
 <style>
 html,body{margin:0;height:100%;overflow:hidden;background:#f6e7d0;font-family:"Trebuchet MS",system-ui,sans-serif;touch-action:manipulation;-webkit-user-select:none;user-select:none}
 canvas{display:block;width:100%;height:100%;touch-action:none}
@@ -46,7 +46,7 @@ canvas{display:block;width:100%;height:100%;touch-action:none}
 <div id="start"><h1>🏫 Let's learn the words, then play!</h1><p style="margin:0;color:#7a4b12;font-size:22px">👆 Drag the screen or tap ◀ ▶ to look around</p><button id="go">▶ Start</button></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-const WORDS=["desk","chair","computer","crayon","board","pencil-case"];
+const WORDS=["desk","","computer","crayon","board","pencil-case"];
 const renderer=new THREE.WebGLRenderer({antialias:true});
 renderer.setPixelRatio(Math.min(devicePixelRatio,2));
 renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
@@ -176,7 +176,7 @@ addEventListener('resize',()=>{resize();fxResize()});resize();fxResize();
 // game
 let target=null,last=null,score=0,started=false,anim={},round=0,miss=false;const TOTAL=12;
 const $=id=>document.getElementById(id);
-const labels={desk:'desk',chair:'chair',computer:'computer',crayon:'crayon'};
+const labels={desk:'desk',:'',computer:'computer',crayon:'crayon'};
 function speak(w){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(w.replace(/-/g,' '));u.lang='en-US';u.rate=.8;u.pitch=1.2;speechSynthesis.speak(u)}catch(e){}}
 function say(w){let done=false;const fb=()=>{if(!done){done=true;speak(w)}};
  try{const a=new Audio(w+'.mp3');a.onerror=fb;const p=a.play();if(p&&p.catch)p.catch(fb)}catch(e){fb()}}
